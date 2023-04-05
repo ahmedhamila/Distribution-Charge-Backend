@@ -19,12 +19,12 @@ public class Reclamation implements Serializable {
     @GeneratedValue
     @Column(name = "id_reclamation", nullable = false)
     private Long idReclamation;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="id_etudiant", nullable = false)
     private Etudiant etudiant;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="id_enseignant", nullable = false)
     private Enseignant enseignant;

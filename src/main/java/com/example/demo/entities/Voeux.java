@@ -27,7 +27,7 @@ public class Voeux implements Serializable {
 //    private StaffAdministratif SA;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_enseignant")
-    @JsonBackReference
+    //@JsonBackReference
     private Enseignant enseignant;
 
 

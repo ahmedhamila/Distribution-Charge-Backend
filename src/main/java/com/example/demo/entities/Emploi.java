@@ -31,7 +31,7 @@ public class Emploi implements Serializable {
     private Date dateFin;
 
     @OneToMany(mappedBy = "emploi",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Seance> seances;
 
     public Emploi(Date dateDebut, Date dateFin, Set<Seance> seances) {

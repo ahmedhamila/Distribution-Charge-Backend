@@ -23,12 +23,12 @@ public class Magasin implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "magasin",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<DemandeStockable> demandeStockables;
 
 
     @OneToMany(mappedBy = "magasin",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Stockable> stockables;
 
 

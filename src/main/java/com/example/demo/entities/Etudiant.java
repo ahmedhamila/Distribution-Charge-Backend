@@ -18,21 +18,21 @@ import java.util.Set;
 @Setter
 public class Etudiant extends Personne {
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="id_td")
     private TD td;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="id_tp")
     private TP tp;
 
     @OneToMany(mappedBy = "etudiant",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Reclamation> reclamations;
 
     @OneToMany(mappedBy = "etudiant",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Note> notes;
 
     public Etudiant(String cin, String nom, String prenom, Date naissance, Sexe sexe, String adresse, String password, String email, String telephone, int age, TD td, TP tp, Set<Note> notes, Set<Reclamation> reclamations) {

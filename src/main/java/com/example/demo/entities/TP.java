@@ -24,10 +24,10 @@ public class TP implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "tp", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Etudiant> etudiants ;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    //@JsonBackReference
     @JoinColumn(name="td")
     private TD td;
 

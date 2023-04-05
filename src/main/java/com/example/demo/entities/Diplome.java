@@ -19,9 +19,9 @@ public class Diplome implements Serializable {
     private String nom;
 
 
-    @OneToMany(mappedBy="diplome",fetch=FetchType.LAZY)
-    @JsonManagedReference
-    private Set<Niveau> niveau;
+    //@OneToMany(mappedBy="diplome",fetch=FetchType.LAZY)
+    //@JsonManagedReference
+    //private Set<Niveau> niveau;
 
 
 
@@ -31,11 +31,11 @@ public class Diplome implements Serializable {
 
     public Diplome(String nom, Set<Niveau> niveau) {
         this.nom = nom;
-        this.niveau = niveau;
+        //this.niveau = niveau;
     }
     public Diplome(String nom) {
         this.nom = nom;
-        this.niveau  = new HashSet<>();
+        //this.niveau  = new HashSet<>();
     }
 
 
@@ -49,16 +49,16 @@ public class Diplome implements Serializable {
         this.nom = nom;
     }
 
-    public Set<Niveau> getNiveau() {
-        return niveau;
-    }
+    //public Set<Niveau> getNiveau() {
+        //return niveau;
+    //}
 
     public void setNiveau(Set<Niveau> niveau) {
-        this.niveau = niveau;
+        //this.niveau = niveau;
     }
 
     public void addNiveau(Niveau niveau) {
-        this.niveau.add(niveau);
+        //this.niveau.add(niveau);
     }
 }
 //Constructors

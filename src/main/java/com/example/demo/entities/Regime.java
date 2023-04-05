@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,15 +42,26 @@ public class Regime implements Serializable {
     //public float formule(){}
 
 
-    @OneToMany(mappedBy = "regime",fetch=FetchType.LAZY)
-    @JsonManagedReference
-    public Set<Matiere> matieres;
+    //@OneToMany(mappedBy = "regime",fetch=FetchType.LAZY)
+    //@JsonManagedReference()
+    //public Set<Matiere> matieres;
 
 
     public Regime() {
 
     }
 
+    public Regime(Long idRegime, String name, int coeff, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp, Set<Matiere> matieres) {
+        this.idRegime = idRegime;
+        this.name = name;
+        this.coeff = coeff;
+        this.nbHCr = nbHCr;
+        this.nbHTd = nbHTd;
+        this.nbHTp = nbHTp;
+        this.nbHCri = nbHCri;
+        this.nbHNp = nbHNp;
+        //this.matieres = matieres;
+    }
 
     public Regime(String name, int coeff, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp, Set<Matiere> matieres) {
         this.name = name;
@@ -59,7 +71,7 @@ public class Regime implements Serializable {
         this.nbHTp = nbHTp;
         this.nbHCri = nbHCri;
         this.nbHNp = nbHNp;
-        this.matieres = matieres;
+        //this.matieres = matieres;
     }
 
     public Regime(String name,int coeff, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp) {
@@ -70,11 +82,11 @@ public class Regime implements Serializable {
         this.nbHTp = nbHTp;
         this.nbHCri = nbHCri;
         this.nbHNp = nbHNp;
-        this.matieres = new HashSet<>();
+        //this.matieres = new HashSet<>();
     }
 
-    public void addMatiere(Matiere matiere) {
-        this.matieres.add(matiere);
-    }
+    //public void addMatiere(Matiere matiere) {
+        //this.matieres.add(matiere);
+    //}
 }
 

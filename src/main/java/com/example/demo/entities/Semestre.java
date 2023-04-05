@@ -23,20 +23,60 @@ public class Semestre implements Serializable {
     @Column(length = 100)
     private String name;
 
-    @OneToMany(mappedBy = "semestre",fetch=FetchType.LAZY)
-    @JsonManagedReference
-    private Set<Section> sections;
+    @Column(length = 100)
+    private int numUnite;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_niveau")
+    @ManyToOne //(mappedBy = "semestre",fetch=FetchType.LAZY)
+    //@JsonManagedReference
+    private Section sections;
+
+    //@JsonBackReference
+    @ManyToOne//(fetch = FetchType.LAZY)
+    //@JoinColumn(name="id_niveau")
     private Niveau niveau;
 
-    @ManyToMany
-    @JoinColumn(name="id_unitesSems")
-    private Set<Unite> unitesSemstre;
+    @ManyToOne
+    private Unite unit1;
+    @ManyToOne
+    private Unite unit2;
+    @ManyToOne
+    private Unite unit3;
+    @ManyToOne
+    private Unite unit4;
+    @ManyToOne
+    private Unite unit5;
+    @ManyToOne
+    private Unite unit6;
+
+    public Semestre(String name, int numUnite, Section sections, Niveau niveau, Unite unit1, Unite unit2, Unite unit3, Unite unit4, Unite unit5, Unite unit6) {
+        this.name = name;
+        this.numUnite = numUnite;
+        this.sections = sections;
+        this.niveau = niveau;
+        this.unit1 = unit1;
+        this.unit2 = unit2;
+        this.unit3 = unit3;
+        this.unit4 = unit4;
+        this.unit5 = unit5;
+        this.unit6 = unit6;
+    }
 
 
+
+
+    public Semestre(Long idSemestre, String name, int numUnite, Section sections, Niveau niveau, Unite unit1, Unite unit2, Unite unit3, Unite unit4, Unite unit5, Unite unit6) {
+        this.idSemestre = idSemestre;
+        this.name = name;
+        this.numUnite = numUnite;
+        this.sections = sections;
+        this.niveau = niveau;
+        this.unit1 = unit1;
+        this.unit2 = unit2;
+        this.unit3 = unit3;
+        this.unit4 = unit4;
+        this.unit5 = unit5;
+        this.unit6 = unit6;
+    }
 
     public Semestre() {
 
@@ -44,29 +84,31 @@ public class Semestre implements Serializable {
 
     public Semestre(String name, Niveau niveau ) {
         this.name = name;
-        this.sections = new HashSet<>();
+        this.sections = sections;
         this.niveau = niveau;
-        this.unitesSemstre = new HashSet<>();
+        //this.unitesSemstre = new HashSet<>();
     }
-    public Semestre(String name, Set<Section> sections, Niveau niveau, Set<Unite> unitesSems) {
+
+
+    public Semestre(String name, Section sections, Niveau niveau, Set<Unite> unitesSems) {
         this.name = name;
         this.sections = sections;
         this.niveau = niveau;
-        this.unitesSemstre = unitesSems;
+        //this.unitesSemstre = unitesSems;
     }
 
     public Semestre(String name, Niveau niveau, Set<Unite> unites) {
         this.name = name;
         this.niveau = niveau;
-        this.unitesSemstre = unites;
+        //this.unitesSemstre = unites;
     }
 
 
-    public void addUnite(Unite unite) {
-        this.unitesSemstre.add(unite);
-    }
-    public void addSections(Section section) {
-        this.sections.add(section);
-    }
+    //public void addUnite(Unite unite) {
+        //this.unitesSemstre.add(unite);
+    //}
+    //public void addSections(Section section) {
+        //this.sections.add(section);
+    //}
 }
 

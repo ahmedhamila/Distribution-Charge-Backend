@@ -29,6 +29,12 @@ public class EnseignantMatiere implements Serializable {
     @JoinColumn(name="id_matiere")
     private Matiere  matiere;
 
+
+    //@JsonBackReference
+    @ManyToOne()
+    @JoinColumn(name="id_semestre")
+    private Semestre semestre;
+
     @Column
     private Session session;
     @Column
@@ -44,16 +50,25 @@ public class EnseignantMatiere implements Serializable {
         this.groupId = groupId;
     }
 
+    public EnseignantMatiere(Enseignant enseignant, Matiere matiere, Session session, Groups groupType, Long groupId, Semestre semestre) {
+        this.enseignant = enseignant;
+        this.matiere = matiere;
+        this.session = session;
+        this.groupType = groupType;
+        this.groupId = groupId;
+        this.semestre = semestre;
+    }
+
     public EnseignantMatiere() {
 
     }
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Enseignant")
     public Enseignant getEnseignant() {
         return enseignant;
     }
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "USER_ID")
     public Matiere getMatiere() {

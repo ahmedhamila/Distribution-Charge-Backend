@@ -22,17 +22,17 @@ public class TD implements Serializable {
 
     @Column(length = 100)
     private String name;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="tds")
     private Section section;
 
     @OneToMany(mappedBy = "td", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<TP> tps;
 
     @OneToMany(mappedBy = "td", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Etudiant> etudiants ;
 
     public TD() {

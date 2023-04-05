@@ -23,15 +23,15 @@ public class Enseignant extends Employer  {
 //    private Long idEnseignant;
 
     @OneToMany(mappedBy="enseignant",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Voeux> voeux;
     @OneToMany(mappedBy = "enseignant",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<EnseignantMatiere> enseignantMatiere ;
 
 
     @OneToMany(mappedBy = "enseingant",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Note> notes;
 
 

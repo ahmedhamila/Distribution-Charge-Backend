@@ -28,7 +28,7 @@ public class DemandeUnstockable implements Serializable {
 
 
     @OneToMany(mappedBy = "demandeUnstockable",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Stockable> stockables;
 
     public DemandeUnstockable() {

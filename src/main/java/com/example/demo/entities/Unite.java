@@ -22,17 +22,26 @@ public class Unite implements Serializable {
     @Column(length = 100)
     private String name;
 
-    @ManyToMany
-    @JoinColumn(name="id_semestres")
-    private Set<Semestre> semestres;
+    //@ManyToMany
+    //@JoinColumn(name="id_semestres")
+    //private Set<Semestre> semestres;
 
     public Unite() {
 
     }
-    @OneToMany(mappedBy = "unite",fetch=FetchType.LAZY)
-    @JsonManagedReference
-    private Set<Matiere> matieres;
 
+    //@JsonManagedReference
+    @ManyToOne
+    private Matiere m1;
+    @ManyToOne
+    private Matiere m2;
+    @ManyToOne
+    private Matiere m3;
+    @ManyToOne
+    private Matiere m4;
+
+    @Column
+    private int numMat;
 
     @Column
     private float coef;
@@ -46,8 +55,8 @@ public class Unite implements Serializable {
     public Unite(int  codeUnite, String name, Set<Semestre> semestres, Set<Matiere> matieres, float coef, float credit) {
         this.codeUnite = codeUnite;
         this.name = name;
-        this.semestres = semestres;
-        this.matieres = matieres;
+        //this.semestres = semestres;
+        //this.matieres = matieres;
         this.coef = coef;
         this.credit = credit;
     }
@@ -55,19 +64,19 @@ public class Unite implements Serializable {
     public Unite(int  codeUnite, String name, float coef, float credit) {
         this.codeUnite = codeUnite;
         this.name = name;
-        this.semestres = new HashSet<>();
-        this.matieres = new HashSet<>();
+        //this.semestres = new HashSet<>();
+        //this.matieres = new HashSet<>();
         this.coef = coef;
         this.credit = credit;
     }
     
 
     public void addMatiere(Matiere matiere) {
-        this.matieres.add(matiere);
+        //this.matieres.add(matiere);
     }
 
     public void addSemestre(Semestre semestre) {
-        this.semestres.add(semestre);
+        //this.semestres.add(semestre);
     }
 }
 //Constructors

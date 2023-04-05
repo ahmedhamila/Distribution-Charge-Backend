@@ -36,17 +36,17 @@ public class Employer  extends Personne {
     @ManyToMany
     @JoinColumn(name="id_services")
     private Set<Service> services;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="id_department")
     private Department department;
 
     @OneToMany(mappedBy = "employer",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<DemandeConger> demandeConger;
 
     @OneToMany(mappedBy = "employer",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<DemandeStockable> demandeStockable;
 
 

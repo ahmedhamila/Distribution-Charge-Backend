@@ -23,14 +23,14 @@ public class Niveau implements Serializable {
     @Column(length = 100)
     private String name;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne
-    @JoinColumn(name="myDiplome")
+    //@JoinColumn(name="myDiplome")
     private Diplome diplome;
 
-    @OneToMany(mappedBy = "niveau",fetch=FetchType.LAZY)
-    @JsonManagedReference
-    private Set<Semestre> semestres;
+    //@OneToMany(mappedBy = "niveau",fetch=FetchType.LAZY)
+    //@JsonManagedReference
+    //private Set<Semestre> semestres;
 
 
 
@@ -47,12 +47,12 @@ public class Niveau implements Serializable {
 
     public Niveau(String name, Set<Semestre> semestres) {
         this.name = name;
-        this.semestres = semestres;
+        //this.semestres = semestres;
     }
 
     public Niveau(String name) {
         this.name = name;
-        this.semestres = new HashSet<>();
+        //this.semestres = new HashSet<>();
     }
 
     public String getName() {
@@ -65,7 +65,7 @@ public class Niveau implements Serializable {
 
 
     public void addSemestre(Semestre semestre) {
-        this.semestres.add(semestre);
+        //this.semestres.add(semestre);
     }
 }
 

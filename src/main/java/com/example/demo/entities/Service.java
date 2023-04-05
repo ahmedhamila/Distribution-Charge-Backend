@@ -29,12 +29,12 @@ public class Service implements Serializable {
 
 
     @OneToMany(mappedBy = "service",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<DemandeStockable> demandeStockable;
 
 
     @OneToMany(mappedBy = "service",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Stockable> stockables;
 
     public Service() {

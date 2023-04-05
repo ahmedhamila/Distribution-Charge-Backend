@@ -31,7 +31,7 @@ public class Seance implements Serializable {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="id_emploi")
     private Emploi emploi;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="id_salle")
     private Salle salle;

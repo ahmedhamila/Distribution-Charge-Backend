@@ -25,15 +25,15 @@ public class DemandeStockable implements Serializable {
     @Column(length = 100)
     private String etat;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="id_employer" )
     private Employer employer;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="id_service")
     private Service service;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="id_magasin")
     private Magasin magasin;

@@ -26,7 +26,7 @@ public class Salle implements Serializable {
     private Boolean disponibilité;
 
     @OneToMany(mappedBy = "salle",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Seance> seances;
 
     public Salle(Boolean disponibilité, Set<Seance> seances) {

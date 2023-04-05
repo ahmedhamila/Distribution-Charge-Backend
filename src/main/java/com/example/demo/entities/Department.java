@@ -30,12 +30,12 @@ public class Department implements Serializable {
     private Employer ChefDepartement;
 
     @OneToMany(mappedBy = "department",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Employer> employers;
 
 
     @OneToMany(mappedBy = "department",fetch=FetchType.LAZY)
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Enseignant> enseignants;
 
     public Department() {

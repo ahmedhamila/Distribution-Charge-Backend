@@ -58,30 +58,82 @@ public class Matiere implements Serializable {
 
 
 
-    @JsonBackReference
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="matieres")
+    //@JsonBackReference
+    @ManyToOne
+    //@JoinColumn(name="regime")
     private Regime regime;
 
-    @JsonBackReference
+    //@JsonBackReference
+    /*
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="unite")
-    private Unite unite;
+    private Unite unite;*/
 
 
-
+/*
     @OneToMany(mappedBy = "matiere",fetch=FetchType.LAZY)
-    @JsonManagedReference
-    private Set<Note> notes;
+    //@JsonManagedReference
+    private Set<Note> notes;*/
 
-    @OneToMany(mappedBy = "matiere")
-    @JsonManagedReference
+
+    @OneToMany
+    //@JsonManagedReference
     private Set<EnseignantMatiere> enseignantMatiere ;
 
     public Matiere() {
 
     }
 
+    public Matiere(String name, float credit, float coeff, int coeffExam, int coeffDs, int coeffTp, int coeffOral, int code, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp) {
+        this.name = name;
+        this.credit = credit;
+        this.coeff = coeff;
+        this.coeffExam = coeffExam;
+        this.coeffDs = coeffDs;
+        this.coeffTp = coeffTp;
+        this.coeffOral = coeffOral;
+        this.code = code;
+        this.nbHCr = nbHCr;
+        this.nbHTd = nbHTd;
+        this.nbHTp = nbHTp;
+        this.nbHCri = nbHCri;
+        this.nbHNp = nbHNp;
+    }
+
+    public Matiere(Long idMatiere, String name, float credit, float coeff, int coeffExam, int coeffDs, int coeffTp, int coeffOral, int code, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp) {
+        this.idMatiere = idMatiere;
+        this.name = name;
+        this.credit = credit;
+        this.coeff = coeff;
+        this.coeffExam = coeffExam;
+        this.coeffDs = coeffDs;
+        this.coeffTp = coeffTp;
+        this.coeffOral = coeffOral;
+        this.code = code;
+        this.nbHCr = nbHCr;
+        this.nbHTd = nbHTd;
+        this.nbHTp = nbHTp;
+        this.nbHCri = nbHCri;
+        this.nbHNp = nbHNp;
+    }
+
+    public Matiere(Long idMatiere, String name, float credit, float coeff, int coeffExam, int coeffDs, int coeffTp, int coeffOral, int code, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp, Regime regime) {
+        this.idMatiere = idMatiere;
+        this.name = name;
+        this.credit = credit;
+        this.coeff = coeff;
+        this.coeffExam = coeffExam;
+        this.coeffDs = coeffDs;
+        this.coeffTp = coeffTp;
+        this.coeffOral = coeffOral;
+        this.code = code;
+        this.nbHCr = nbHCr;
+        this.nbHTd = nbHTd;
+        this.nbHTp = nbHTp;
+        this.nbHCri = nbHCri;
+        this.nbHNp = nbHNp;
+        this.regime = regime;
+    }
 
     public Matiere(String name, float credit, float coeff, int coeffExam, int coeffDs, int coeffTp, int coeffOral, int code, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp, Regime regime, Unite unite, Set<Note> notes, Set<EnseignantMatiere> enseignantMatiere) {
         this.name = name;
@@ -98,8 +150,8 @@ public class Matiere implements Serializable {
         this.nbHCri = nbHCri;
         this.nbHNp = nbHNp;
         this.regime = regime;
-        this.unite = unite;
-        this.notes = notes;
+        //this.unite = unite;
+        //this.notes = notes;
         this.enseignantMatiere = enseignantMatiere;
     }
 
@@ -119,8 +171,8 @@ public class Matiere implements Serializable {
         this.nbHCri = nbHCri;
         this.nbHNp = nbHNp;
         this.regime = regime;
-        this.unite = unite;
-        this.notes = new HashSet<>();
+        //this.unite = unite;
+        //this.notes = new HashSet<>();
         this.enseignantMatiere  = new HashSet<>();
     }
     public String getName() {
@@ -141,7 +193,7 @@ public class Matiere implements Serializable {
     }
 
     public void addNotes(Note note) {
-        this.notes.add(note);
+        //this.notes.add(note);
     }
 
     public void addEnseignantMatiere(EnseignantMatiere enseignantMatiere) {

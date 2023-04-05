@@ -25,15 +25,15 @@ public class Stockable implements Serializable {
     @ManyToMany
     @JoinTable(name = "Stockable_facture_stockable", joinColumns = {@JoinColumn(name = "id_Stockable")}, inverseJoinColumns = {@JoinColumn(name = "id_facture_stockable")})
     Set<FactureStockable> factureStockables;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_demande_unstockable" , referencedColumnName = "idDemandeUnstockable")
     private DemandeUnstockable demandeUnstockable;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_magasin")
     private Magasin magasin;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_service" , referencedColumnName = "idService")
     private Service service;

@@ -29,15 +29,15 @@ public class FactureStockable implements Serializable {
     private float tva;
 
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_demande_unstockable")
     private DemandeUnstockable demandeUnstockable;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_magasin" )
     private Magasin magasin;
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_service" )
     private Service service;
